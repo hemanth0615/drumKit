@@ -11,8 +11,20 @@ for(var i=0;i< numberOfDrumButtons;i++){
         // console.log(this.style.color = "yellow");
         
         var buttonInnerHTML = this.innerHTML;
+        makeSound(buttonInnerHTML);
+        
+    });
+}
 
-        switch (buttonInnerHTML) {
+
+document.addEventListener("keypress", function(event){
+    console.log(event);
+    // alert("Key was pressed!");
+    makeSound(event.key);
+});
+
+function makeSound(key){
+    switch (key) {
             case "w":
                 var tom1 = new Audio('sounds/tom-1.mp3');
                 tom1.play();
@@ -45,5 +57,4 @@ for(var i=0;i< numberOfDrumButtons;i++){
             default: console.log(buttonInnerHTML);
                 break;
         }
-    });
 }
